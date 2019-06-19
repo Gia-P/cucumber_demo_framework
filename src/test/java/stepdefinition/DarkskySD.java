@@ -12,14 +12,15 @@ public class DarkskySD {
 
     @Given("^I am on Darksky Home Page$")
     public void iAmOnDarkskyHomePage() {
-        Assert.assertTrue(darkskyHomePage.isDarkSkyApiEnable(),"Invalid Home Page");
+        Assert.assertTrue(darkskyHomePage.isTimelineDisplayed(),"Invalid Home Page");
+        //Assert.assertEquals(SharedSD.getDriver().getPageSource(),"Dark Sky","Invalid Home Page");
     }
 
     @Given("^I am on the darksky Register page$")
     public void iAmOnRegisterPage(){
         darkskyHomePage.clickOnDarkSkyAPI();
         darkskyHomePage.clickOnSignUpButton();
-        Assert.assertEquals(darkskyHomePage.getTextRegisterPage(),"Register","Invalid Register Page");
+        Assert.assertEquals(SharedSD.getDriver().getTitle(),"Dark Sky API: Register","Invalid Register Page");
     }
 
     @When("^I click on Register button$")
@@ -27,13 +28,20 @@ public class DarkskySD {
         darkskyHomePage.clickOnRegisterButton();
     }
 
+    @When("^I expand todays timeline$")
+    public void clickOnTodaysTimeline() throws InterruptedException {
+        darkskyHomePage.scrollDown();
+        Thread.sleep(500);
+        darkskyHomePage.clickOnDayOpen();
+    }
+
     @Then("^I verify error message \"please fill out this field\"$")
     public void iAmOnRegisterPageAfterClick(){
-        Assert.assertEquals(darkskyHomePage.getTextRegisterPage(),"Register","Invalid Register Page");
+        Assert.assertEquals(SharedSD.getDriver().getTitle(),"Dark Sky API: Register","Invalid Register Page after click on Register Button");
     }
 
     @Then("^I verify current temp is not greater or less then temps from daily timeline$")
     public void verifyCurrentTemp(){
-
+        Assert.assertFalse(darkskyHomePage.currentTempIsGreaterOrLess(),"Current Temp out of timeline shit");
     }
 }

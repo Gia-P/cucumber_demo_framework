@@ -21,7 +21,7 @@ formatter.feature({
   ]
 });
 formatter.before({
-  "duration": 22931750550,
+  "duration": 11392760608,
   "status": "passed"
 });
 formatter.background({
@@ -40,61 +40,58 @@ formatter.match({
   "location": "DarkskySD.iAmOnDarkskyHomePage()"
 });
 formatter.result({
-  "duration": 1190049365,
+  "duration": 920393521,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 8,
-  "name": "Verify invalid signup error message",
+  "line": 20,
+  "name": "Verify individual day temp timeline",
   "description": "",
-  "id": "darksky-feature;verify-invalid-signup-error-message",
+  "id": "darksky-feature;verify-individual-day-temp-timeline",
   "type": "scenario",
   "keyword": "Scenario",
   "tags": [
     {
-      "line": 7,
-      "name": "@darksky-1"
+      "line": 19,
+      "name": "@darksky-3"
     }
   ]
 });
 formatter.step({
-  "line": 9,
-  "name": "I am on the darksky Register page",
+  "line": 21,
+  "name": "I am on Darksky Home Page",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 10,
-  "name": "I click on Register button",
+  "line": 22,
+  "name": "I expand todays timeline",
   "keyword": "When "
 });
 formatter.step({
-  "line": 11,
-  "name": "I verify error message \"please fill out this field\"",
+  "line": 23,
+  "name": "I verify lowest and highest temp is displayed correctly",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "DarkskySD.iAmOnRegisterPage()"
+  "location": "DarkskySD.iAmOnDarkskyHomePage()"
 });
 formatter.result({
-  "duration": 1230690972,
+  "duration": 50816615,
   "status": "passed"
 });
 formatter.match({
-  "location": "DarkskySD.iClickOnRegisterButton()"
+  "location": "DarkskySD.clickOnTodaysTimeline()"
 });
 formatter.result({
-  "duration": 236011157,
+  "duration": 3651660758,
   "status": "passed"
 });
-formatter.match({
-  "location": "DarkskySD.iAmOnRegisterPageAfterClick()"
-});
+formatter.match({});
 formatter.result({
-  "duration": 26043320,
-  "status": "passed"
+  "status": "undefined"
 });
 formatter.after({
-  "duration": 551493386,
+  "duration": 772349602,
   "status": "passed"
 });
 });

@@ -9,6 +9,9 @@ import org.openqa.selenium.support.ui.Wait;
 import stepdefinition.SharedSD;
 
 import java.time.Duration;
+import java.util.List;
+
+import static stepdefinition.SharedSD.getDriver;
 
 /**
  * Created by mohammadmuntakim
@@ -17,7 +20,7 @@ public class BasePage {
 
 	// This is the most common wait function used in selenium
 	public static WebElement webAction(final By locator) {
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(SharedSD.getDriver())
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(getDriver())
 				.withTimeout(Duration.ofSeconds(15))
 				.pollingEvery(Duration.ofSeconds(1))
 				.ignoring(NoSuchElementException.class)
@@ -71,5 +74,16 @@ public class BasePage {
 
 	public boolean isElementEnabled(By locator) {
 		return webAction(locator).isEnabled();
+	}
+
+	public List<WebElement> webElements(By locator){
+		List<WebElement> elements = getDriver().findElements(locator);
+		return elements;
+	}
+
+	public void scroll(By locator){
+		WebElement scrollElement = webAction(locator);
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();
+		js.executeScript("arguments[0].scrollIntoView();", scrollElement);
 	}
 }
