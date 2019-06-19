@@ -21,7 +21,7 @@ formatter.feature({
   ]
 });
 formatter.before({
-  "duration": 16552509995,
+  "duration": 22931750550,
   "status": "passed"
 });
 formatter.background({
@@ -33,14 +33,14 @@ formatter.background({
 });
 formatter.step({
   "line": 5,
-  "name": "I am on Darksky home page",
+  "name": "I am on Darksky Home Page",
   "keyword": "Given "
 });
 formatter.match({
   "location": "DarkskySD.iAmOnDarkskyHomePage()"
 });
 formatter.result({
-  "duration": 834217689,
+  "duration": 1190049365,
   "status": "passed"
 });
 formatter.scenario({
@@ -76,25 +76,25 @@ formatter.match({
   "location": "DarkskySD.iAmOnRegisterPage()"
 });
 formatter.result({
-  "duration": 933847396,
+  "duration": 1230690972,
   "status": "passed"
 });
 formatter.match({
   "location": "DarkskySD.iClickOnRegisterButton()"
 });
 formatter.result({
-  "duration": 80137424,
+  "duration": 236011157,
   "status": "passed"
 });
 formatter.match({
   "location": "DarkskySD.iAmOnRegisterPageAfterClick()"
 });
 formatter.result({
-  "duration": 33058228,
+  "duration": 26043320,
   "status": "passed"
 });
 formatter.after({
-  "duration": 346574688,
+  "duration": 551493386,
   "status": "passed"
 });
 });
