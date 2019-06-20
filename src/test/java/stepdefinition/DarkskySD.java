@@ -44,4 +44,14 @@ public class DarkskySD {
     public void verifyCurrentTemp(){
         Assert.assertFalse(darkskyHomePage.currentTempIsGreaterOrLess(),"Current Temp out of timeline shit");
     }
+
+    @Then("^I verify lowest and highest temp is displayed correctly$")
+    public void lowHighTempDispelCorrect(){
+        Assert.assertTrue(darkskyHomePage.isLowHighTempDispelCorrect(),"Lowest and highest temp isn't displayed correctly");
+    }
+
+    @Then("^I verify timeline is displayed with two hours incremented$")
+    public void timelineDisplayedTwoHours(){
+        Assert.assertTrue(darkskyHomePage.isTimelineDisplayedTwoHours(),"Timeline isn't displayed with two hours incremented");
+    }
 }
