@@ -4,8 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+import java.util.*;
 
 public class DarkskyHomePage extends BasePage {
 
@@ -15,7 +14,7 @@ public class DarkskyHomePage extends BasePage {
     private By register = By.xpath("//h1[@class='stand-alone title']");
     private By registerButton = By.xpath("//button[contains(text(),'Register')]");
     private By currentTemp = By.xpath("//span[@class='summary swap']");
-    private By timelineTemp = By.xpath("//div[@class='temps']//span");
+    private By timelineTemp = By.xpath("//div[@class='temps']/span");
     private By todaysTimelineOpen = By.xpath("//div[@id='week']/a[1]//span[@class='open']");
     private By todaysMinTemp = By.xpath("//a[@class='day revealed']//span[@class='minTemp']");
     private By todaysMaxTemp = By.xpath("//a[@class='day revealed']//span[@class='maxTemp']");
@@ -45,13 +44,28 @@ public class DarkskyHomePage extends BasePage {
 
     public boolean currentTempIsGreaterOrLess(){
         boolean result = true;
-        String getCurrentTemp = getTextFromElement(currentTemp);
-        String temp = getCurrentTemp.substring(0,2);
+        int temp;
+        String[] getCurrentTemp = getTextFromElement(currentTemp).split(" ");
+        if (getCurrentTemp[0].length() > 2) {
+            temp = Integer.parseInt(getCurrentTemp[0].substring(0, 2));
+        }
+        else {
+            temp = (getCurrentTemp[0].charAt(0));
+        }
+        ArrayList<Integer> timelineTemps = new ArrayList<>();
+        int intTemp;
         for (WebElement element : webElements(timelineTemp)){
-            if (temp.equals(element.getText().substring(0,2))){
-                result = false;
-                break;
+            if (element.getText().length() > 2) {
+                intTemp = Integer.parseInt(element.getText().substring(0, 2));
             }
+            else {
+                intTemp = (element.getText().charAt(0));
+            }
+            timelineTemps.add(intTemp);
+        }
+        Collections.sort(timelineTemps);
+        if (temp >= timelineTemps.get(0) && temp <= timelineTemps.get(timelineTemps.size()-1)){
+            result = false;
         }
         return result;
     }
