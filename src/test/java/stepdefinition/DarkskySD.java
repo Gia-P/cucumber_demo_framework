@@ -1,5 +1,6 @@
 package stepdefinition;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -9,6 +10,13 @@ import org.testng.Assert;
 public class DarkskySD {
 
     private DarkskyHomePage darkskyHomePage = new DarkskyHomePage();
+    /*  Eastern Daylight Time:  New York / Central Daylight Time:  Chicago
+        Mountain Daylight Time:  Denver / Mountain Standard Time:  Phoenix
+        Pacific Daylight Time:  Los Angeles / Alaska Daylight Time: Anchorage (GMT-8)
+        Hawaii-Aleutian Standard Time: Honolulu
+    */
+
+    public String city = "Honolulu";
 
     @Given("^I am on Darksky Home Page$")
     public void iAmOnDarkskyHomePage() {
@@ -35,6 +43,16 @@ public class DarkskySD {
         darkskyHomePage.clickOnDayOpen();
     }
 
+    @When("^I enter city into search text field on home screen$")
+    public void setCityTextField(){
+        darkskyHomePage.setSearchTextField(city);
+    }
+
+    @And("^I verify city's time zone$")
+    public String timezone(){
+        return darkskyHomePage.timeZone(city);
+    }
+
     @Then("^I verify error message \"please fill out this field\"$")
     public void iAmOnRegisterPageAfterClick(){
         Assert.assertEquals(SharedSD.getDriver().getTitle(),"Dark Sky API: Register","Invalid Register Page after click on Register Button");
@@ -52,6 +70,6 @@ public class DarkskySD {
 
     @Then("^I verify timeline is displayed with two hours incremented$")
     public void timelineDisplayedTwoHours(){
-        Assert.assertTrue(darkskyHomePage.isTimelineDisplayedTwoHours(),"Timeline isn't displayed with two hours incremented");
+        Assert.assertTrue(darkskyHomePage.isTimelineDisplayedTwoHours(2, timezone()),"Timeline isn't displayed with two hours incremented");
     }
 }

@@ -21,7 +21,7 @@ formatter.feature({
   ]
 });
 formatter.before({
-  "duration": 9958321210,
+  "duration": 15867827853,
   "status": "passed"
 });
 formatter.background({
@@ -40,49 +40,73 @@ formatter.match({
   "location": "DarkskySD.iAmOnDarkskyHomePage()"
 });
 formatter.result({
-  "duration": 1024982366,
+  "duration": 1029715024,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 14,
-  "name": "Verify Current Temperature should not be greater or less than",
-  "description": "        the Temperature from Daily Timeline",
-  "id": "darksky-feature;verify-current-temperature-should-not-be-greater-or-less-than",
+  "line": 26,
+  "name": "Verify timline is displayed in correct format",
+  "description": "",
+  "id": "darksky-feature;verify-timline-is-displayed-in-correct-format",
   "type": "scenario",
   "keyword": "Scenario",
   "tags": [
     {
-      "line": 13,
-      "name": "@darksky-2"
+      "line": 25,
+      "name": "@darksky-4"
     }
   ]
 });
 formatter.step({
-  "line": 16,
+  "line": 27,
   "name": "I am on Darksky Home Page",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 17,
-  "name": "I verify current temp is not greater or less then temps from daily timeline",
+  "line": 28,
+  "name": "I enter city into search text field on home screen",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 29,
+  "name": "I verify city\u0027s time zone",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 30,
+  "name": "I verify timeline is displayed with two hours incremented",
   "keyword": "Then "
 });
 formatter.match({
   "location": "DarkskySD.iAmOnDarkskyHomePage()"
 });
 formatter.result({
-  "duration": 31285741,
+  "duration": 29081723,
   "status": "passed"
 });
 formatter.match({
-  "location": "DarkskySD.verifyCurrentTemp()"
+  "location": "DarkskySD.setCityTextField()"
 });
 formatter.result({
-  "duration": 645450529,
+  "duration": 350918206,
+  "status": "passed"
+});
+formatter.match({
+  "location": "DarkskySD.timezone()"
+});
+formatter.result({
+  "duration": 126965,
+  "status": "passed"
+});
+formatter.match({
+  "location": "DarkskySD.timelineDisplayedTwoHours()"
+});
+formatter.result({
+  "duration": 1747003002,
   "status": "passed"
 });
 formatter.after({
-  "duration": 655771088,
+  "duration": 409754982,
   "status": "passed"
 });
 });

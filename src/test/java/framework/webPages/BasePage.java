@@ -10,6 +10,7 @@ import stepdefinition.SharedSD;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static stepdefinition.SharedSD.getDriver;
 
@@ -27,7 +28,7 @@ public class BasePage {
 				.ignoring(StaleElementReferenceException.class)
 				.ignoring(ElementClickInterceptedException.class)
 				.withMessage(
-						"Webdriver waited for 15 seconds but still could not find the element therefore Timeout Exception has been thrown");
+						"WebDriver waited for 15 seconds but still could not find the element therefore Timeout Exception has been thrown");
 
 		WebElement element = wait.until(new Function<WebDriver, WebElement>() {
 			public WebElement apply(WebDriver driver) {
@@ -85,5 +86,13 @@ public class BasePage {
 		WebElement scrollElement = webAction(locator);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		js.executeScript("arguments[0].scrollIntoView();", scrollElement);
+	}
+
+	public void clear(By locator){
+		webAction(locator).clear();
+	}
+
+	public void waitAfterAction(int amount){
+		getDriver().manage().timeouts().implicitlyWait(amount, TimeUnit.SECONDS);
 	}
 }

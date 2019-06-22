@@ -21,6 +21,8 @@ public class DarkskyHomePage extends BasePage {
     private By dayDetalsTemp1 = By.xpath("//div[@class='dayDetails revealed']//span[@class='highTemp swip']/span[@class='temp']");
     private By dayDetalsTemp2 = By.xpath("//div[@class='dayDetails revealed']//span[@class='lowTemp swap']/span[@class='temp']");
     private By timelineHours = By.xpath("//div[@id='timeline']//div[@class='hours']/span/span");
+    private By searchTextField = By.xpath("//form[@id='searchForm']//input");
+    private By searchButton = By.xpath("//a[@class='searchButton']");
 
     public boolean isTimelineDisplayed(){
         return isElementDisplayed(timeline);
@@ -89,11 +91,46 @@ public class DarkskyHomePage extends BasePage {
         return false;
     }
 
-    public boolean isTimelineDisplayedTwoHours(){
+    public void setSearchTextField(String city){
+        clear(searchTextField);
+        setValue(searchTextField,city);
+        clickOn(searchButton);
+    }
+
+    public String timeZone(String city){
+        String lowerCaseCity = city.toLowerCase();
+        String timeZone = "";
+        switch (lowerCaseCity){
+            case "new york":
+                timeZone = "GMT-4";
+                break;
+            case "chicago":
+                timeZone = "GMT-5";
+                break;
+            case "denver":
+                timeZone = "GMT-6";
+                break;
+            case "phoenix":
+            case "los angeles":
+                timeZone = "GMT-7";
+                break;
+            case "anchorage":
+                timeZone = "GMT-8";
+                break;
+            case "honolulu":
+                timeZone = "GMT-10";
+                break;
+        }
+        return timeZone;
+    }
+
+    public boolean isTimelineDisplayedTwoHours(int amount, String timeZone){
+
         Calendar calendar = new GregorianCalendar();
         SimpleDateFormat sdf = new SimpleDateFormat("ha");
+        sdf.setTimeZone(TimeZone.getTimeZone(timeZone));
         for (int i = 1; i < webElements(timelineHours).size(); i++){
-            calendar.add(calendar.HOUR,2);
+            calendar.add(calendar.HOUR,amount);
             String hours = sdf.format(calendar.getTime()).toLowerCase();
             if (!webElements(timelineHours).get(i).getText().equals(hours)){
                 return false;
