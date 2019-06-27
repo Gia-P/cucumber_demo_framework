@@ -5,7 +5,9 @@ import org.openqa.selenium.WebElement;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
-
+/**
+ * Created by Gia Pachkhatashvili
+ */
 public class DarkskyHomePage extends BasePage {
 
     private By timeline = By.id("timeline");
@@ -73,7 +75,7 @@ public class DarkskyHomePage extends BasePage {
     }
 
     public void scrollDown(){
-        scroll(todaysTimelineOpen);
+        scrollByElement(todaysTimelineOpen);
     }
 
     public void clickOnDayOpen(){

@@ -1,9 +1,9 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("darksky.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("hotels.feature");
 formatter.feature({
   "line": 2,
-  "name": "Darksky feature",
+  "name": "Hotels feature",
   "description": "",
-  "id": "darksky-feature",
+  "id": "hotels-feature",
   "keyword": "Feature",
   "tags": [
     {
@@ -16,12 +16,12 @@ formatter.feature({
     },
     {
       "line": 1,
-      "name": "@darksky"
+      "name": "@hotels"
     }
   ]
 });
 formatter.before({
-  "duration": 15867827853,
+  "duration": 11619906111,
   "status": "passed"
 });
 formatter.background({
@@ -33,80 +33,75 @@ formatter.background({
 });
 formatter.step({
   "line": 5,
-  "name": "I am on Darksky Home Page",
+  "name": "I am on Hotels Home Page",
   "keyword": "Given "
 });
 formatter.match({
-  "location": "DarkskySD.iAmOnDarkskyHomePage()"
+  "location": "HotelsSD.iAmOnHotelsHomePage()"
 });
 formatter.result({
-  "duration": 1029715024,
+  "duration": 1432287529,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 26,
-  "name": "Verify timline is displayed in correct format",
+  "line": 20,
+  "name": "List of all of hotel within 10 miles radius of airport or downtown",
   "description": "",
-  "id": "darksky-feature;verify-timline-is-displayed-in-correct-format",
+  "id": "hotels-feature;list-of-all-of-hotel-within-10-miles-radius-of-airport-or-downtown",
   "type": "scenario",
   "keyword": "Scenario",
   "tags": [
     {
-      "line": 25,
-      "name": "@darksky-4"
+      "line": 19,
+      "name": "@hotels-2"
     }
   ]
 });
 formatter.step({
-  "line": 27,
-  "name": "I am on Darksky Home Page",
+  "line": 21,
+  "name": "I am on default locations search result screen",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 28,
-  "name": "I enter city into search text field on home screen",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 29,
-  "name": "I verify city\u0027s time zone",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 30,
-  "name": "I verify timeline is displayed with two hours incremented",
+  "line": 22,
+  "name": "I verify system displays all hotels within 10 miles radius of airport",
   "keyword": "Then "
 });
+formatter.step({
+  "line": 23,
+  "name": "I verify Hilton Hotel is within 10 miles radius of downtown",
+  "keyword": "And "
+});
 formatter.match({
-  "location": "DarkskySD.iAmOnDarkskyHomePage()"
+  "location": "HotelsSD.setCityTextField()"
 });
 formatter.result({
-  "duration": 29081723,
+  "duration": 13498653582,
   "status": "passed"
 });
 formatter.match({
-  "location": "DarkskySD.setCityTextField()"
+  "location": "HotelsSD.verifyDisplaysRadiusAirport()"
 });
 formatter.result({
-  "duration": 350918206,
+  "duration": 7214668038,
   "status": "passed"
 });
 formatter.match({
-  "location": "DarkskySD.timezone()"
+  "arguments": [
+    {
+      "val": "Hilton Hotel",
+      "offset": 9
+    }
+  ],
+  "location": "HotelsSD.verifyDisplaysRadiusDowntown(String)"
 });
 formatter.result({
-  "duration": 126965,
-  "status": "passed"
-});
-formatter.match({
-  "location": "DarkskySD.timelineDisplayedTwoHours()"
-});
-formatter.result({
-  "duration": 1747003002,
-  "status": "passed"
+  "duration": 10948707950,
+  "error_message": "java.lang.AssertionError: System not displays all hotels within 10 miles radius of downtown expected [true] but found [false]\n\tat org.testng.Assert.fail(Assert.java:93)\n\tat org.testng.Assert.failNotEquals(Assert.java:512)\n\tat org.testng.Assert.assertTrue(Assert.java:41)\n\tat stepdefinition.HotelsSD.verifyDisplaysRadiusDowntown(HotelsSD.java:66)\n\tat ✽.And I verify Hilton Hotel is within 10 miles radius of downtown(hotels.feature:23)\n",
+  "status": "failed"
 });
 formatter.after({
-  "duration": 409754982,
+  "duration": 1382530990,
   "status": "passed"
 });
 });

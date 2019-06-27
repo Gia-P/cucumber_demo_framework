@@ -2,10 +2,13 @@ package framework.webPages;
 
 import com.google.common.base.Function;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 
+import ru.yandex.qatools.properties.annotations.With;
 import stepdefinition.SharedSD;
 
 import java.time.Duration;
@@ -82,17 +85,29 @@ public class BasePage {
 		return elements;
 	}
 
-	public void scroll(By locator){
+	public void scrollByElement(By locator){
 		WebElement scrollElement = webAction(locator);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		js.executeScript("arguments[0].scrollIntoView();", scrollElement);
+	}
+
+	public void scrollByPixel(String pixel){
+		String string = "window.scrollBy(0," + pixel + ")";
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();
+		js.executeScript(string);
 	}
 
 	public void clear(By locator){
 		webAction(locator).clear();
 	}
 
-	public void waitAfterAction(int amount){
-		getDriver().manage().timeouts().implicitlyWait(amount, TimeUnit.SECONDS);
+	public void windowMaximizi(){
+		getDriver().manage().window().maximize();
 	}
+
+	public void moveToElement(By locator){
+		Actions actions = new Actions(getDriver());
+		actions.moveToElement(webAction(locator)).build().perform();
+	}
+
 }

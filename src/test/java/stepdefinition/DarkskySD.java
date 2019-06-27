@@ -6,7 +6,9 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import framework.webPages.DarkskyHomePage;
 import org.testng.Assert;
-
+/**
+ * Created by Gia Pachkhatashvili
+ */
 public class DarkskySD {
 
     private DarkskyHomePage darkskyHomePage = new DarkskyHomePage();
