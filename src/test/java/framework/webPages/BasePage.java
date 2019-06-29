@@ -91,8 +91,8 @@ public class BasePage {
 		js.executeScript("arguments[0].scrollIntoView();", scrollElement);
 	}
 
-	public void scrollByPixel(String pixel){
-		String string = "window.scrollBy(0," + pixel + ")";
+	public void scrollByPixel(String xPixel, String yPixel){
+		String string = "window.scrollBy(" + xPixel +"," + yPixel + ")";
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		js.executeScript(string);
 	}
@@ -101,7 +101,7 @@ public class BasePage {
 		webAction(locator).clear();
 	}
 
-	public void windowMaximizi(){
+	public void windowMaximize(){
 		getDriver().manage().window().maximize();
 	}
 

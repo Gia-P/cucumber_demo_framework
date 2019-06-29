@@ -31,7 +31,7 @@ public class HotelsHomePage extends BasePage{
 
     public void setCityTextField(String setCity) throws InterruptedException {
         ignoreAlert();
-        windowMaximizi();
+        windowMaximize();
         setValue(cityTextField, setCity);
         Thread.sleep(500);
         String reString = "";
@@ -77,7 +77,7 @@ public class HotelsHomePage extends BasePage{
         List<WebElement> elements = webElements(starsRatings);
         int size;
         for (int i = 0; i < elements.size(); i++){
-            scrollByPixel("600");
+            scrollByPixel("0","600");
             Thread.sleep(2500);
             elements = webElements(starsRatings);
             size = elements.size();
@@ -98,7 +98,7 @@ public class HotelsHomePage extends BasePage{
         List<WebElement> elements = webElements(starsRatings);
         int size;
         for (int i = 0; i < elements.size(); i++){
-            scrollByPixel("600");
+            scrollByPixel("0","600");
             Thread.sleep(2500);
             elements = webElements(starsRatings);
             size = elements.size();
@@ -121,7 +121,7 @@ public class HotelsHomePage extends BasePage{
         List<WebElement> elements = webElements(threeStarsRatings);
         int size;
         for (int i = 0; i < elements.size(); i++) {
-            scrollByPixel("600");
+            scrollByPixel("0","600");
             Thread.sleep(2500);
             elements = webElements(threeStarsRatings);
             size = elements.size();
@@ -152,7 +152,7 @@ public class HotelsHomePage extends BasePage{
         List<WebElement> elements = webElements(milesToAirports);
         int size;
         for (int i = 0; i < elements.size(); i++){
-            scrollByPixel("600");
+            scrollByPixel("0","600");
             Thread.sleep(2500);
             elements = webElements(milesToAirports);
             size = elements.size();
@@ -192,7 +192,7 @@ public class HotelsHomePage extends BasePage{
         List<WebElement> elements = webElements(milesToDowntown);
         int size;
         for (int i = 0; i < elements.size(); i++){
-            scrollByPixel("600");
+            scrollByPixel("0","600");
             Thread.sleep(2500);
             elements = webElements(milesToDowntown);
             size = elements.size();
