@@ -1,4 +1,5 @@
 @web @regression @darksky
+  # Created by Gia Pachkhatashvili
 Feature: Darksky feature
 
   Background:

@@ -1,4 +1,5 @@
 @web @regression @hotels
+  # Created by Gia Pachkhatashvili
 Feature: Hotels feature
 
   Background:
