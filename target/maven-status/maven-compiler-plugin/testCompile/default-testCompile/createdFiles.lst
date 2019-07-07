@@ -6,6 +6,7 @@ framework/webPages/DarkskyHomePage.class
 framework/TestRunner.class
 framework/webPages/LoginPage.class
 framework/mobilePages/MainMenu.class
+stepdefinition/HotelsSD.class
 framework/MobileBasePage.class
 stepdefinition/LoginSD.class
 util/ConfigReader.class
@@ -13,6 +14,7 @@ framework/webPages/MessengerLoginPage.class
 framework/webPages/BasePage$1.class
 framework/webPages/BasePage.class
 framework/mobilePages/HomeScreen.class
+framework/webPages/HotelsHomePage.class
 stepdefinition/MessengerSD.class
 framework/AppiumWrapper.class
 framework/webPages/MessengerPage.class

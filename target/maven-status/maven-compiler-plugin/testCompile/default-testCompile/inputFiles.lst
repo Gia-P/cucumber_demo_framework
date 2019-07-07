@@ -9,8 +9,10 @@
 /Users/gia/Desktop/QA/Github/cucumber_demo_framework/src/test/java/framework/mobilePages/HomeScreen.java
 /Users/gia/Desktop/QA/Github/cucumber_demo_framework/src/test/java/framework/webPages/HomePage.java
 /Users/gia/Desktop/QA/Github/cucumber_demo_framework/src/test/java/framework/MobileBasePage.java
+/Users/gia/Desktop/QA/Github/cucumber_demo_framework/src/test/java/framework/webPages/HotelsHomePage.java
 /Users/gia/Desktop/QA/Github/cucumber_demo_framework/src/test/java/framework/webPages/MessengerPage.java
 /Users/gia/Desktop/QA/Github/cucumber_demo_framework/src/test/java/framework/webPages/DarkskyHomePage.java
+/Users/gia/Desktop/QA/Github/cucumber_demo_framework/src/test/java/stepdefinition/HotelsSD.java
 /Users/gia/Desktop/QA/Github/cucumber_demo_framework/src/test/java/stepdefinition/SharedSD.java
 /Users/gia/Desktop/QA/Github/cucumber_demo_framework/src/test/java/framework/webPages/LoginPage.java
 /Users/gia/Desktop/QA/Github/cucumber_demo_framework/src/test/java/stepdefinition/LoginSD.java
