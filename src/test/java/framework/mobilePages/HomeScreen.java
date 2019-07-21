@@ -15,11 +15,22 @@ public class HomeScreen extends MobileBasePage {
     @iOSFindBy(accessibility = "undefined")
     private MobileElement mainMenu;
 
+    public HomeScreen() {
+    }
+
     public void tapOnSkipButton() {
         tapOn(skipButton);
     }
 
     public void tapOnMainMenuButton() {
         tapOn(mainMenu);
+    }
+
+    public boolean isMenuButtonDisplayed(){
+        return isElementDisplayed(mainMenu);
+    }
+
+    public void swipe(){
+        swipeScreenHorizontally(3,0.8,0.2);
     }
 }
